@@ -5,6 +5,7 @@ import Hourly from "../components/Hourly";
 import SevenDay from "../components/SevenDay";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
+import Popup from "../components/popup";
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
       <Current />
       <Hourly />
       <SevenDay />
-      <Subscribe/>
-      <Footer/>
+      <Subscribe />
+      <Footer />
     </>
   );
 }

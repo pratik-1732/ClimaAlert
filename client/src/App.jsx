@@ -1,9 +1,20 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Current from "../components/Current";
+import Hourly from "../components/Hourly";
+import SevenDay from "../components/SevenDay";
+import Subscribe from "../components/Subscribe";
+import Footer from "../components/Footer";
 
 function App() {
   return (
     <>
-      <h1 className="bg-black text-white text-5xl">Hello</h1>
+      <Navbar />
+      <Current />
+      <Hourly />
+      <SevenDay />
+      <Subscribe/>
+      <Footer/>
     </>
   );
 }

@@ -14,14 +14,14 @@ const getWeatherByCoords = async (req, res) => {
   }
   try {
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather`,
+      `http://api.weatherapi.com/v1/forecast.json`,
       {
         params: {
-          lat: lat,
-          lon: lon,
-          units: "metric",
-          appid: apiKey,
-          exclude: "minutely,alerts",
+          key: apiKey,
+          q: `${lat},${lon}`,
+          days: 7,
+          aqi: "no",
+          alerts: "no",
         },
       }
     );

@@ -28,7 +28,6 @@ function App() {
             }
           );
           setWeather(res.data);
-          console.log(res.data);
         } catch (err) {
           setError("Failed to fetch weather.");
           console.error(err);
@@ -44,7 +43,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Current />
+      <Current data={weather} />
       <Hourly />
       <SevenDay />
       <Subscribe />

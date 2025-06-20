@@ -14,9 +14,15 @@ const Current = ({ data }) => {
       pressure_in,
       uv,
     },
+    forecast: {
+      forecastday: [
+        {
+          astro: { sunrise, sunset },
+        },
+      ],
+    },
   } = data;
-  
-  const { x, y } = { x: "05:00 AM", y: "06:00 PM" };
+
   return (
     <div className=" py-10 mx-20 my-15 rounded-2xl flex justify-between items-center bg-blue-400 ">
       <div className="ml-50 flex flex-col items-center justify-center md:items-start text-white text-center overflow-hidden gap-3 ">
@@ -49,8 +55,8 @@ const Current = ({ data }) => {
             }}
           />
           <Info data={{ name: "UV Index", val: uv, bgColor: "#442B72" }} />
-          <Info data={{ name: "Sunrise", val: x, bgColor: "#421B9B" }} />
-          <Info data={{ name: "Sunset", val: y, bgColor: "#FF0000" }} />
+          <Info data={{ name: "Sunrise", val: sunrise, bgColor: "#421B9B" }} />
+          <Info data={{ name: "Sunset", val: sunset, bgColor: "#FF0000" }} />
         </div>
       </div>
     </div>

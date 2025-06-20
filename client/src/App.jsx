@@ -45,7 +45,7 @@ function App() {
       <Navbar />
       <Current data={weather} />
       <Hourly />
-      <SevenDay />
+      <SevenDay data={weather} />
       <Subscribe />
       <Footer />
     </>

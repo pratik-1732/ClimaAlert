@@ -44,7 +44,7 @@ function App() {
     <>
       <Navbar />
       <Current data={weather} />
-      <Hourly />
+      <Hourly data={weather} />
       <SevenDay data={weather} />
       <Subscribe />
       <Footer />

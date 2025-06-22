@@ -7,7 +7,7 @@ const Popup = ({ message, onClose }) => {
       <p className="mb-4 font-semibold">{message}</p>
       <button
         onClick={onClose}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
+        className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer"
       >
         OK
       </button>

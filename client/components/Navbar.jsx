@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
+  const [place, setPlace] = useState("");
+
+  const handleChange = async (e) => {
+    e.preventDefault();
+    if (!place.trim()) return;
+    onSearch(place);
+    setPlace("");
+  };
+
   return (
     <div className=" px-2 py-5 bg-blue-400 flex justify-around  shadow-sm">
       <div className="flex items-center">
@@ -8,16 +18,20 @@ const Navbar = () => {
         <h2 className="font-bold text-3xl">ClimaAlert</h2>
       </div>
 
-      <div className=" rounded-3xl px-3 py-2">
+      <form className=" rounded-3xl px-3 py-2" onSubmit={handleChange}>
         <input
           className="border-2 rounded-xl border-blue-300 outline-none px-4 py-1 mr-3 text-sm bg-transparent font-bold text-white"
           type="search"
           placeholder="Enter Place"
+          value={place}
+          onChange={(e) => {
+            setPlace(e.target.value);
+          }}
         />
         <button className="rounded-xl px-4 py-1 bg-blue-800 text-white text-sm font-medium cursor-pointer outline-none">
           Search
         </button>
-      </div>
+      </form>
     </div>
   );
 };

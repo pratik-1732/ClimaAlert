@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import subscribeRoute from "./routes/subscribe.js";
 import weatherRoute from "./routes/weather.js";
+import cityWeatherRoute from "./routes/cityWeather.js";
 
 const app = express();
 
@@ -16,6 +17,9 @@ app.use(cors());
 
 app.use("/api", subscribeRoute);
 app.use("/api/weather", weatherRoute);
+
+app.use("/api", subscribeRoute);
+app.use("/api/cityWeather", cityWeatherRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello friends");

@@ -15,10 +15,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(cors());
 
+// routes
 app.use("/api", subscribeRoute);
 app.use("/api/weather", weatherRoute);
-
-app.use("/api", subscribeRoute);
 app.use("/api/cityWeather", cityWeatherRoute);
 
 app.get("/", (req, res) => {

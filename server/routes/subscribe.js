@@ -1,12 +1,19 @@
 import express from "express";
-
 const router = express.Router();
 
-router.post("/subscribe", (req, res) => {
-  const { name, mobileNum, pincode } = req.body;
-  console.log({ name, mobileNum, pincode });
+import user from "../models/user.js";
 
-  res.status(200).json({ message: "subscribed successfully", name });
+router.post("/subscribe", async (req, res) => {
+  const { Name, Number, Pincode } = req.body;
+  console.log({ Name, Number, Pincode });
+
+  try {
+    await user.create({ Name, Number, Pincode });
+    res.status(201).json({ Name });
+  } catch (error) {
+    console.error("Error saving subscriber:", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 export default router;

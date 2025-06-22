@@ -4,11 +4,11 @@ import { useState } from "react";
 import Popup from "./Popup";
 
 const Subscribe = () => {
-  const [name, setName] = useState("");
-  const [mobileNum, setMobileNum] = useState("");
-  const [pincode, setPincode] = useState("");
-  const [popupMessage, setPopupMessage] = useState("");
+  const [Name, setName] = useState("");
+  const [Number, setNumber] = useState("");
+  const [Pincode, setPincode] = useState("");
 
+  const [popupMessage, setPopupMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -18,19 +18,19 @@ const Subscribe = () => {
       const res = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/subscribe`,
         {
-          name,
-          mobileNum,
-          pincode,
+          Name,
+          Number,
+          Pincode,
         }
       );
 
       setPopupMessage(
-        `Hello ${res.data.name}, you have subscribed successfully...`
+        `Hello ${res.data.Name}, you have subscribed successfully...`
       );
       setShowPopup(true);
 
       setName("");
-      setMobileNum("");
+      setNumber("");
       setPincode("");
     } catch (err) {
       console.error("Subscription Error:", err);
@@ -52,27 +52,49 @@ const Subscribe = () => {
 
         <form onSubmit={handleSubmit} className="flex gap-4 items-center">
           <div className="flex flex-col gap-3">
-            <input
-              className="border-2 rounded-lg border-blue-300 outline-none px-4 py-1 mr-5 bg-transparent text-white text-sm font-bold"
-              type="text"
-              value={name}
-              placeholder="Enter Your Name "
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              className="border-2 rounded-lg border-blue-300 outline-none px-4 py-1 mr-5 bg-transparent text-white text-sm font-bold"
-              type="tel"
-              value={mobileNum}
-              placeholder="Enter Mobile No. "
-              onChange={(e) => setMobileNum(e.target.value)}
-            />
-            <input
-              className="border-2 rounded-lg border-blue-300 outline-none px-4 py-1 mr-5 bg-transparent text-white text-sm font-bold"
-              type="text"
-              value={pincode}
-              placeholder="Enter Pincode "
-              onChange={(e) => setPincode(e.target.value)}
-            />
+            <div className="flex gap-4 items-center">
+              <label className="text-sm text-white font-semibold">
+                Enter Your Name:
+              </label>
+              <input
+                className="border-2 rounded-lg border-blue-300 outline-none px-4 py-1 mr-5 bg-transparent text-white text-sm font-bold"
+                type="text"
+                value={Name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="flex gap-4 items-center">
+              <label className="text-sm text-white font-semibold">
+                Enter Your Mobile No.:
+              </label>
+              <input
+                className="border-2 rounded-lg border-blue-300 outline-none px-4 py-1 mr-5 bg-transparent text-white text-sm font-bold"
+                type="tel"
+                value={Number}
+                onChange={(e) => setNumber(e.target.value)}
+                required
+                maxLength={10}
+              />
+            </div>
+            {Number.length < 10 && (
+              <p className=" text-sm text-red-700">
+                Minimum 10 digits required
+              </p>
+            )}
+            <div className="flex gap-4 items-center">
+              <label className="text-sm text-white font-semibold">
+                Enter Your Pincode:
+              </label>
+              <input
+                className="border-2 rounded-lg border-blue-300 outline-none px-4 py-1 mr-5 bg-transparent text-white text-sm font-bold"
+                type="text"
+                value={Pincode}
+                onChange={(e) => setPincode(e.target.value)}
+                required
+                maxLength={6}
+              />
+            </div>
           </div>
           <button className="rounded-lg px-6 py-2 bg-blue-800 text-white text-sm font-medium cursor-pointer outline-none">
             Subscribe

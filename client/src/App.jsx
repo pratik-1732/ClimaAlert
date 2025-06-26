@@ -8,6 +8,7 @@ import SevenDay from "../components/SevenDay";
 import Subscribe from "../components/Subscribe";
 import Footer from "../components/Footer";
 import Popup from "../components/Popup";
+import OtpPopUp from "../components/otpPopup";
 
 function App() {
   const [weather, setWeather] = useState(null);
@@ -73,7 +74,6 @@ function App() {
     }
   };
 
-  console.log(weather);
   return (
     <>
       <Navbar onSearch={getWeatherByPlace} />
@@ -82,6 +82,7 @@ function App() {
       <SevenDay data={weather} />
       <Subscribe />
       <Footer />
+
       {showPopup && (
         <Popup message={error} onClose={() => setShowPopup(false)} />
       )}

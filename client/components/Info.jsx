@@ -1,20 +1,26 @@
 import React from "react";
 
 const Info = ({ data }) => {
-  if (!data) return console.log("data not recieved in info.jsx");
   const { name, val, bgColor } = data;
   return (
-    <div className="flex flex-col justify-center bg-blue-300 items-center w-30 h-32 p-3 rounded-md text-center overflow-hidden">
-      <span
-        typeof="square"
-        className="h-6 w-6 mb-3 flex-shrink-0"
-        style={{ backgroundColor: bgColor }}
-      ></span>
-      <div className="flex flex-col items-center justify-center">
-        <p className="text-white text-sm font-medium break-words mb-3">
+    <div className="group relative overflow-hidden">
+      <div
+        className="px-3 sm:px-4 py-3 sm:py-4 rounded-2xl text-white font-medium shadow-xl transform group-hover:scale-105 group-hover:-translate-y-1 transition-all duration-500 text-center min-h-[70px] sm:min-h-[80px] flex flex-col justify-center backdrop-blur-sm border border-white/20 relative z-10"
+        style={{
+          background: `linear-gradient(135deg, ${bgColor}dd, ${bgColor}bb)`,
+        }}
+      >
+        <div className="text-xs sm:text-sm opacity-90 mb-1 font-medium tracking-wide uppercase">
           {name}
-        </p>
-        <p className="text-white text-sm font-medium">{val}</p>
+        </div>
+        <div className="text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+          {val}
+        </div>
+
+        <div
+          className="absolute inset-0 rounded-2xl opacity-20 blur-sm group-hover:opacity-40 transition-opacity duration-500"
+          style={{ backgroundColor: bgColor }}
+        ></div>
       </div>
     </div>
   );

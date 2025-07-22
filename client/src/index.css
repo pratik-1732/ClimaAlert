@@ -1,4 +1,44 @@
 @import "tailwindcss";
+
 body {
-  background-color: #1f8fff;
+  background: linear-gradient(
+    135deg,
+    #0f0f23 0%,
+    #4c1d95 20%,
+    #1e293b 40%,
+    #7c2d12 60%,
+    #0f0f23 100%
+  );
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* stars  */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(2px 2px at 20px 30px, #fbbf24, transparent),
+    radial-gradient(2px 2px at 40px 70px, #a78bfa, transparent),
+    radial-gradient(1px 1px at 90px 40px, #22d3ee, transparent),
+    radial-gradient(1px 1px at 130px 80px, #f472b6, transparent),
+    radial-gradient(2px 2px at 160px 30px, #10b981, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkle 4s infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
 }

@@ -28,14 +28,46 @@ const Hourly = ({ data }) => {
   );
 
   return (
-    <div className="flex flex-col sm:px-10 lg:px-20 my-10  w-full">
-      <h2 className="text-2xl font-bold text-white mb-5">Hourly Forecast</h2>
-      <div className="p-7  bg-blue-400 rounded-2xl flex gap-5 flex-wrap">
-        {upcomingHours.map((ele, index) => {
-          return (
-            <HourCard data={ele} key={index} bgColor={colorArray[index]} />
-          );
-        })}
+    <div className="flex flex-col sm:px-10 lg:px-20 my-10 w-full">
+      {/* title  */}
+      <div className="relative mb-12">
+        <h2 className="text-6xl font-black bg-gradient-to-r from-amber-400 via-orange-500  to-purple-600 bg-clip-text text-transparent mb-4 drop-shadow-2xl tracking-tight">
+          Hourly Forecast
+        </h2>
+      </div>
+
+      <div className="relative">
+        <div className="relative p-10 bg-white/5 backdrop-blur-xl rounded-3xl border-2 border-amber-400/30 shadow-2xl shadow-amber-500/20">
+          <div className="absolute inset-0 overflow-hidden rounded-3xl">
+            {/* stars */}
+            <div className="absolute top-8 left-16 w-1 h-1 bg-amber-300 rounded-full animate-ping opacity-80"></div>
+            <div
+              className="absolute top-12 right-20 w-0.5 h-0.5 bg-cyan-300 rounded-full animate-ping opacity-70"
+              style={{ animationDelay: "1s" }}
+            ></div>
+            <div
+              className="absolute top-24 left-48 w-1 h-1 bg-pink-300 rounded-full animate-ping opacity-60"
+              style={{ animationDelay: "2s" }}
+            ></div>
+            <div
+              className="absolute bottom-12 right-32 w-0.5 h-0.5 bg-purple-300 rounded-full animate-ping opacity-80"
+              style={{ animationDelay: "0.5s" }}
+            ></div>
+            <div
+              className="absolute bottom-24 left-24 w-1 h-1 bg-emerald-300 rounded-full animate-ping opacity-70"
+              style={{ animationDelay: "1.5s" }}
+            ></div>
+          </div>
+
+          {/* Cards  */}
+          <div className="relative z-10 flex gap-8 flex-wrap justify-center lg:justify-start">
+            {upcomingHours.map((ele, index) => {
+              return (
+                <HourCard data={ele} key={index} bgColor={colorArray[index]} />
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );

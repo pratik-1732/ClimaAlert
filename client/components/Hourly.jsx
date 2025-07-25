@@ -37,7 +37,7 @@ const Hourly = ({ data }) => {
       </div>
 
       <div className="relative">
-        <div className="relative p-10 bg-white/5 backdrop-blur-xl rounded-3xl border-2 border-amber-400/30 shadow-2xl shadow-amber-500/20">
+        <div className="relative p-10 bg-white/5 backdrop-blur-xl rounded-3xl border-2 border-white/10 shadow-2xl">
           <div className="absolute inset-0 overflow-hidden rounded-3xl">
             {/* stars */}
             <div className="absolute top-8 left-16 w-1 h-1 bg-amber-300 rounded-full animate-ping opacity-80"></div>

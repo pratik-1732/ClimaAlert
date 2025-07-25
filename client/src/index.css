@@ -1,14 +1,7 @@
 @import "tailwindcss";
 
 body {
-  background: linear-gradient(
-    135deg,
-    #0f0f23 0%,
-    #4c1d95 20%,
-    #1e293b 40%,
-    #7c2d12 60%,
-    #0f0f23 100%
-  );
+  background: linear-gradient(135deg, #0f0f23 0%, #1e293b 40%, #0f0f23 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }

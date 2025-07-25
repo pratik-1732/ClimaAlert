@@ -33,7 +33,7 @@ const HourCard = ({ data, bgColor }) => {
       </div>
 
       {/* Temperature */}
-      <h3 className="mb-3 text-2xl font-bold bg-gradient-to-r from-amber-300 via-orange-400 to-pink-400 bg-clip-text text-transparent relative z-10 drop-shadow-lg">
+      <h3 className="mb-3 text-2xl font-bold  bg-clip-text text-white/80 relative z-10 drop-shadow-lg">
         {temp_c}°C
       </h3>
 

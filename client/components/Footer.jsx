@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-400 px-10 py-7 flex justify-center mt-10">
+    <div className="px-10 py-7 flex justify-center mt-10">
       <h4 className="text-white ">
         @ 2025 Copyright by<span className="ml-3 font-bold">Pratik Patil</span>
       </h4>

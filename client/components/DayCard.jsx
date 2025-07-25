@@ -84,16 +84,6 @@ const DayCard = ({ data, isLast }) => {
               </h3>
             </div>
 
-            {/* Weather Icon */}
-            <div className="relative flex-shrink-0">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-white/10 rounded-full blur-lg scale-150 group-hover:scale-175 transition-transform duration-500"></div>
-              <img
-                className="relative z-10 h-12 w-12 sm:h-14 sm:w-14 p-1 rounded-full border-2 border-white/30 group-hover:border-white/50 backdrop-blur-sm bg-white/10 group-hover:rotate-12 group-hover:scale-110 transition-all duration-500 filter brightness-110"
-                src={icon}
-                alt={text}
-              />
-            </div>
-
             {/* Weather Condition */}
             <div className="flex-1 min-w-0">
               <h3 className="text-sm sm:text-base font-semibold text-white/90 group-hover:text-white truncate transition-colors duration-300">

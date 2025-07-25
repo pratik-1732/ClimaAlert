@@ -12,7 +12,7 @@ const Navbar = ({ onSearch }) => {
   };
 
   return (
-    <div className=" px-2 py-5 bg-blue-400 flex justify-around  shadow-sm">
+    <div className=" px-2 py-5 flex justify-around  shadow-lg border-b border-white/10">
       <div className="flex items-center">
         <img src="/images/logo.png" className="h-15 w-15 mr-3" />
         <h2 className="font-bold text-3xl">ClimaAlert</h2>

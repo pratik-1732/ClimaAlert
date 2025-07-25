@@ -31,7 +31,7 @@ const Hourly = ({ data }) => {
     <div className="flex flex-col sm:px-10 lg:px-20 my-10 w-full">
       {/* title  */}
       <div className="relative mb-12">
-        <h2 className="text-6xl font-black bg-gradient-to-r from-amber-400 via-orange-500  to-purple-600 bg-clip-text text-transparent mb-4 drop-shadow-2xl tracking-tight">
+        <h2 className="text-5xl font-black text-white bg-clip-text mb-4 drop-shadow-2xl tracking-tight">
           Hourly Forecast
         </h2>
       </div>

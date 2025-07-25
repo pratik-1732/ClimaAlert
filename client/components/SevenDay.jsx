@@ -16,8 +16,10 @@ const SevenDay = ({ data }) => {
 
   return (
     <div className="flex flex-col m-20">
-      <h2 className="text-2xl font-bold text-white mb-5">7-Day Forecast</h2>
-      <div className="bg-blue-400 rounded-2xl p-4">
+      <h2 className="text-5xl font-black text-white bg-clip-text mb-6 drop-shadow-2xl tracking-tight">
+        7-Day Forecast
+      </h2>
+      <div className="rounded-2xl p-4">
         {forecastArr.map((ele, index) => {
           return (
             <DayCard

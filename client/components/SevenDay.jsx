@@ -13,6 +13,7 @@ const SevenDay = ({ data }) => {
 
     setForecastArr(forecastday);
   }, [data]);
+  // console.log(data);
 
   return (
     <div className="flex flex-col m-20">

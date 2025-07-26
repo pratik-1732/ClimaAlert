@@ -26,6 +26,7 @@ const getWeatherByCoords = async (req, res) => {
       }
     );
     res.json(response.data);
+    // console.log(response.data);
   } catch (error) {
     console.error("Weather API Error:", error.message);
     res.status(500).json({ message: "Failed to fetch weather data" });

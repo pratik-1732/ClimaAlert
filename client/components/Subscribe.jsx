@@ -1,10 +1,7 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
 import Popup from "./Popup";
 import OtpPopUp from "./otpPopup";
-import { signInWithPhoneNumber } from "firebase/auth";
-import { auth, RecaptchaVerifier } from "../firebase";
 
 const Subscribe = () => {
   const [Name, setName] = useState("");
@@ -15,57 +12,23 @@ const Subscribe = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const [confirmationResult, setConfirmationResult] = useState(null);
-  const [showOtpPopup, setShowOtpPopup] = useState(null);
-
-  const setupRecaptcha = () => {
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        auth,
-        "subscribe-button",
-        {
-          size: "invisible",
-          callback: (response) => {
-            console.log("Recaptcha Verified");
-          },
-        }
-      );
-    }
-  };
+  const [showOtpPopup, setShowOtpPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    setupRecaptcha();
-    const appVerifier = window.recaptchaVerifier;
-    const phoneNum = `+91${Number}`;
-
-    try {
-      const confirmation = await signInWithPhoneNumber(
-        auth,
-        phoneNum,
-        appVerifier
-      );
-      setConfirmationResult(confirmation);
-      setShowOtpPopup(true);
-    } catch (error) {
-      console.error("SMS not sent", error);
-      alert("Failed to send OTP. Try again.");
+    if (Number.length !== 10) {
+      setPopupMessage("Mobile number should be exactly 10 digits.");
+      setShowPopup(true);
+      return;
     }
-  };
-
-  const otpSuccessHandler = async () => {
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/api/subscribe`,
-        {
-          Name,
-          Number,
-          Pincode,
-        }
+        { Name, Number, Pincode }
       );
 
       setPopupMessage(
-        `Hello ${res.data.Name}, you have subscribed successfully...`
+        `Hello ${res.data.Name}, you have subscribed successfully! Check your WhatsApp for confirmation.`
       );
       setShowPopup(true);
 
@@ -86,13 +49,13 @@ const Subscribe = () => {
           Subscribe to get updates to your whatsapp
         </h1>
         <div className=" flex gap-40">
-         {/* left sec content  */}
+          {/* left sec content  */}
           <div className="flex flex-col items-center text-white text-center">
             <h4 className="text-lg font-bold mb-4">Don't miss out!</h4>
             <p>Join thousands of subscribers who trusts us.</p>
           </div>
           {/* form  */}
-          <div
+          <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-6 items-start"
           >
@@ -178,7 +141,7 @@ const Subscribe = () => {
                 </svg>
               </span>
             </button>
-          </div>
+          </form>
         </div>
         {showPopup && (
           <Popup message={popupMessage} onClose={() => setShowPopup(false)} />
@@ -192,6 +155,7 @@ const Subscribe = () => {
           />
         )}
       </div>
+      <div id="recaptcha-container"></div>
     </div>
   );
 };
